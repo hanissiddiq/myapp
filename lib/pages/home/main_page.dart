@@ -8,7 +8,10 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget scanButton() {
       return FloatingActionButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
         onPressed: () {},
         backgroundColor: backgroundColor6,
         child: Image.asset(
@@ -20,61 +23,74 @@ class MainPage extends StatelessWidget {
 
     Widget custombottomNav() {
       return ClipRRect(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20),
-        ),
-        child: BottomNavigationBar(
-          backgroundColor: primaryColor,
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/img/icon_home.png',
-                width: 20,
+        // decoration: BoxDecoration(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+        // ),
+        child: BottomAppBar(
+          shape: const CircularNotchedRectangle(),
+          notchMargin: 8,
+          color: primaryColor,
+          clipBehavior: Clip.antiAlias,
+          child: BottomNavigationBar(
+            backgroundColor: primaryColor,
+            type: BottomNavigationBarType.fixed,
+            elevation: 0,
+            items: [
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/img/icon_home.png',
+                  width: 20,
+                ),
+                label: '',
+                tooltip: 'Home',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/img/icon_love.png',
-                width: 20,
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/img/icon_love.png',
+                  width: 20,
+                ),
+                label: '',
+                tooltip: 'Favorite',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/img/icon_cart.png',
-                height: 4,
-                width: 4,
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/img/icon_cart.png',
+                  height: 4,
+                  width: 4,
+                ),
+                label: '',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/img/icon_cart.png',
-                width: 20,
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/img/icon_cart.png',
+                  width: 20,
+                ),
+                label: '',
+                tooltip: 'Cart',
               ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/img/icon_profile.png',
-                width: 20,
+              BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/img/icon_profile.png',
+                  width: 20,
+                ),
+                label: '',
+                tooltip: 'Profile',
               ),
-              label: '',
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
 
     return Scaffold(
-      backgroundColor: Color(0xffF1F0F2),
+      backgroundColor: Color.fromARGB(255, 112, 14, 209),
       floatingActionButton: scanButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: custombottomNav(),
-      body: Center(
-        child: Text('Main Page'),
+      body: SafeArea(
+        child: Center(
+          child: Text('Main Page'),
+        ),
       ),
     );
   }
