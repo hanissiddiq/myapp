@@ -140,7 +140,7 @@ class _MainPageState extends State<MainPage> {
     }
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 112, 14, 209),
+      backgroundColor: backgroundColor6,
       floatingActionButton: scanButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: custombottomNav(),
